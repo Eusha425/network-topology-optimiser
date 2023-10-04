@@ -1,36 +1,35 @@
-//graph.h
+#ifndef GRAPH_H
+#define GRAPH_H
 
-// importing the standard library
-#include <stdio.h>
-#include <stdlib.h>
-
-// Define a struct for representing an edge in the graph
-typedef struct {
+typedef struct Edge {
     int src, dest, weight;
 } Edge;
 
-// Define a struct for representing a node in the adjacency list
 typedef struct Node {
-    int dest, weight;
+    int dest;
+    int weight;
     struct Node* next;
 } Node;
 
-// Define a struct for representing the adjacency list for each vertex
-typedef struct {
-    int V;       // Number of vertices
-    Node** array; // Array of linked lists
+typedef struct AdjList {
+    Node* head;
+} AdjList;
+
+typedef struct Graph {
+    int V;
+    AdjList* array;
 } Graph;
 
-// Structure to represent a subset for union-find
-typedef struct {
+typedef struct Subset {
     int parent;
     int rank;
 } Subset;
 
-// Function prototypes
 Graph* createGraph(int V);
 void addEdge(Graph* graph, int src, int dest, int weight);
-void kruskalMST(Edge edges[], int V, int E);
+int compareEdges(const void* a, const void* b);
 int find(Subset subsets[], int i);
 void unionSets(Subset subsets[], int x, int y);
-int compareEdges(const void* a, const void* b);
+void kruskalMST(Graph* graph);
+
+#endif // GRAPH_H
