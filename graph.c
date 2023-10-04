@@ -76,7 +76,7 @@ void kruskalMST(Edge edges[], int V, int E) {
     Subset* subsets = (Subset*)malloc(V * sizeof(Subset));
     for (int v = 0; v < V; v++) {
         subsets[v].parent = v;
-        subsets[v].rank = 0;
+        subsets[v].rank = 0; 
     }
 
     // Process each edge
