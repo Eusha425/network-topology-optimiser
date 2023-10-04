@@ -18,6 +18,7 @@ int main() {
     addEdge(graph, 1, 4, 5);
     addEdge(graph, 2, 3, 6);
     addEdge(graph, 3, 4, 7);
+
     kruskalMST(graph);
 
     return 0;
