@@ -11,3 +11,10 @@ struct Subset {
     int parent;
     int rank;
 };
+
+// Structure to represent the adjacency list for each vertex
+struct Graph {
+    int V;             // Number of vertices
+    struct Node** array;  // Array of linked lists
+};
+
