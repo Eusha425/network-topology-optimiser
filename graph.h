@@ -20,3 +20,9 @@ typedef struct {
     int V;       // Number of vertices
     Node** array; // Array of linked lists
 } Graph;
+
+// Structure to represent a subset for union-find
+typedef struct {
+    int parent;
+    int rank;
+} Subset;
