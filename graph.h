@@ -26,3 +26,11 @@ typedef struct {
     int parent;
     int rank;
 } Subset;
+
+// Function prototypes
+Graph* createGraph(int V);
+void addEdge(Graph* graph, int src, int dest, int weight);
+void kruskalMST(Edge edges[], int V, int E);
+int find(Subset subsets[], int i);
+void unionSets(Subset subsets[], int x, int y);
+int compareEdges(const void* a, const void* b);

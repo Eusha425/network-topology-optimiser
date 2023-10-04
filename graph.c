@@ -35,3 +35,4 @@ void addEdge(Graph* graph, int src, int dest, int weight) {
     newNode->next = graph->array[dest];
     graph->array[dest] = newNode;
 }
+
