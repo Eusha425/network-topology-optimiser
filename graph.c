@@ -23,3 +23,15 @@ Graph* createGraph(int V) {
 
     return graph;
 }
+
+// Function to add an edge to the graph
+void addEdge(Graph* graph, int src, int dest, int weight) {
+    Node* newNode = createNode(dest, weight);
+    newNode->next = graph->array[src];
+    graph->array[src] = newNode;
+
+    // For undirected graphs, you may want to add the reverse edge as well.
+    newNode = createNode(src, weight);
+    newNode->next = graph->array[dest];
+    graph->array[dest] = newNode;
+}
