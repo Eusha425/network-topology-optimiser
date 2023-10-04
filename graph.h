@@ -1,20 +1,22 @@
+//graph.h
+
+// importing the standard library
 #include <stdio.h>
 #include <stdlib.h>
 
-// Structure to represent an edge in the graph
-struct Edge {
+// Define a struct for representing an edge in the graph
+typedef struct {
     int src, dest, weight;
-};
+} Edge;
 
-// Structure to represent a subset for the Union-Find data structure
-struct Subset {
-    int parent;
-    int rank;
-};
+// Define a struct for representing a node in the adjacency list
+typedef struct Node {
+    int dest, weight;
+    struct Node* next;
+} Node;
 
-// Structure to represent the adjacency list for each vertex
-struct Graph {
-    int V;             // Number of vertices
-    struct Node** array;  // Array of linked lists
-};
-
+// Define a struct for representing the adjacency list for each vertex
+typedef struct {
+    int V;       // Number of vertices
+    Node** array; // Array of linked lists
+} Graph;
