@@ -1,13 +1,16 @@
-#ifndef GRAPH_H
-#define GRAPH_H
+//graph.h
+
 
 typedef struct Edge {
-    int src, dest, weight;
+    int src, dest;
+    int weight; // Interference
+    int cost;   // Cost
 } Edge;
 
 typedef struct Node {
     int dest;
-    int weight;
+    int weight; // Interference
+    int cost;   // Cost
     struct Node* next;
 } Node;
 
@@ -26,10 +29,9 @@ typedef struct Subset {
 } Subset;
 
 Graph* createGraph(int V);
-void addEdge(Graph* graph, int src, int dest, int weight);
+void addEdge(Graph* graph, int src, int dest, int weight, int cost);
 int compareEdges(const void* a, const void* b);
 int find(Subset subsets[], int i);
 void unionSets(Subset subsets[], int x, int y);
-void kruskalMST(Graph* graph);
+void kruskalMST(Graph* graph, int maxInterference, int maxCost);
 
-#endif // GRAPH_H
