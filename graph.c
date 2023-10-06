@@ -66,7 +66,7 @@ void union_sets(Subset subsets[], int x, int y) {
     }
 }
 
-void kruskalMST(Graph* graph, int max_interference, int max_cost) {
+void kruskal_MST(Graph* graph, int max_interference, int max_cost) {
     int V = graph->V;
     int E = 0;
     for (int i = 0; i < V; ++i) {
@@ -143,3 +143,74 @@ void kruskalMST(Graph* graph, int max_interference, int max_cost) {
     free(result);
 }
 
+void primMST(Graph* graph, int cost_limit, int maxInterference) {
+    int V = graph->V;
+    Edge* result = (Edge*)malloc((V - 1) * sizeof(Edge));
+    int e = 0;
+    int i = 0;
+
+    for (i = 0; i < V - 1; ++i) {
+        result[i].src = -1;
+        result[i].dest = -1;
+        result[i].weight = INT_MAX;
+        result[i].cost = INT_MAX;
+    }
+
+    Subset* subsets = (Subset*)malloc(V * sizeof(Subset));
+
+    for (int v = 0; v < V; ++v) {
+        subsets[v].parent = v;
+        subsets[v].rank = 0;
+    }
+
+    Node* current;
+    int u, v;
+    int min_weight;
+    int min_cost;
+
+    while (e < V - 1) {
+        min_weight = INT_MAX;
+        min_cost = INT_MAX;
+        for (u = 0; u < V; ++u) {
+            current = graph->array[u].head;
+            while (current != NULL) {
+                v = current->dest;
+                if (find(subsets, u) != find(subsets, v) &&
+                    current->weight < min_weight && current->cost <= cost_limit && current->weight <= maxInterference) {
+                    min_weight = current->weight;
+                    min_cost = current->cost;
+                    result[e].src = u;
+                    result[e].dest = v;
+                }
+                current = current->next;
+            }
+        }
+
+        u = result[e].src;
+        v = result[e].dest;
+
+        if (u != -1 && v != -1) {
+            int x = find(subsets, u);
+            int y = find(subsets, v);
+
+            if (x != y) {
+                result[e].weight = min_weight;
+                result[e].cost = min_cost;
+                union_sets(subsets, x, y);
+                e++;
+            }
+        }
+        else {
+            break;
+        }
+    }
+
+    // Print the MST
+    printf("Edge \tWeight \tCost\n");
+    for (i = 0; i < e; ++i) {
+        printf("%d - %d \t%d \t%d\n", result[i].src, result[i].dest, result[i].weight, result[i].cost);
+    }
+
+    free(result);
+    free(subsets);
+}
