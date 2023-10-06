@@ -130,6 +130,7 @@
     <ClInclude Include="graph.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="archive.c" />
     <ClCompile Include="graph.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
