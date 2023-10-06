@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "graph.h"
 
-// primary main method
+// kruskal solution
 int main() {
     int V = 6; // Number of vertices (tower locations)
     Graph* graph = create_graph(V);
@@ -49,6 +49,7 @@ int main() {
     return 0;
 }
 
+// prim's solution
 int mai1() {
     int V = 6; // Number of vertices
     int E = 9; // Number of edges
@@ -68,7 +69,7 @@ int mai1() {
     add_edge(graph, 4, 5, 3, 6);
     add_edge(graph, 0, 5, 4, 10);
 
-    primMST(graph, cost_limit, maxInterference);
+    prim_MST(graph, cost_limit, maxInterference);
 
     return 0;
 }

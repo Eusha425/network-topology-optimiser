@@ -143,7 +143,7 @@ void kruskal_MST(Graph* graph, int max_interference, int max_cost) {
     free(result);
 }
 
-void primMST(Graph* graph, int cost_limit, int maxInterference) {
+void prim_MST(Graph* graph, int cost_limit, int maxInterference) {
     int V = graph->V;
     Edge* result = (Edge*)malloc((V - 1) * sizeof(Edge));
     int e = 0;
