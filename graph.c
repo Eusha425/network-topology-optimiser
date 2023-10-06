@@ -66,7 +66,7 @@ void union_sets(Subset subsets[], int x, int y) {
     }
 }
 
-void kruskal_MST(Graph* graph, int max_interference, int max_cost) {
+void kruskalMST(Graph* graph, int max_interference, int max_cost) {
     int V = graph->V;
     int E = 0;
     for (int i = 0; i < V; ++i) {

@@ -22,7 +22,7 @@ int main() {
     int maxCost = 100;        // Maximum allowed cost (high value)
 
     printf("Test Case 1: Basic graph with no constraints\n");
-    kruskal_MST(graph, maxInterference, maxCost);
+    kruskalMST(graph, maxInterference, maxCost);
 
     // Free allocated memory
     free(graph);
@@ -41,7 +41,7 @@ int main() {
     maxCost = 7;         // Maximum allowed cost
 
     printf("\nTest Case 2: Graph with interference and cost constraints\n");
-    kruskal_MST(graph, maxInterference, maxCost);
+    kruskalMST(graph, maxInterference, maxCost);
 
     // Free allocated memory
     free(graph);
