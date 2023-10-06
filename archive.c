@@ -16,7 +16,7 @@ int main_edge() {
     edge2.weight = 5;
     edge2.cost = 2;
 
-    int result = compareEdges(&edge1, &edge2);
+    int result = compare_edges(&edge1, &edge2);
 
     printf("Comparison Result: %d\n", result); // Should print a negative value
 
@@ -32,9 +32,9 @@ int main_union() {
         subsets[i].rank = 0;
     }
 
-    unionSets(subsets, 0, 1);
-    unionSets(subsets, 2, 3);
-    unionSets(subsets, 1, 3);
+    union_sets(subsets, 0, 1);
+    union_sets(subsets, 2, 3);
+    union_sets(subsets, 1, 3);
 
     int root0 = find(subsets, 0);
     int root1 = find(subsets, 1);
@@ -53,12 +53,12 @@ int main_union() {
 // test for create graph and adding edge
 int main_graph() {
     int V = 4; // Number of vertices
-    Graph* graph = createGraph(V);
+    Graph* graph = create_graph(V);
 
     // Add edges to the graph
-    addEdge(graph, 0, 1, 2, 3);
-    addEdge(graph, 0, 2, 4, 1);
-    addEdge(graph, 1, 2, 5, 2);
+    add_edge(graph, 0, 1, 2, 3);
+    add_edge(graph, 0, 2, 4, 1);
+    add_edge(graph, 1, 2, 5, 2);
 
     // Print the adjacency list to verify edge addition
     for (int i = 0; i < V; ++i) {
