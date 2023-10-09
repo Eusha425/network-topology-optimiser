@@ -4,72 +4,50 @@
 #include <stdlib.h>
 #include "graph.h"
 
-// kruskal solution
 int main() {
-    int V = 6; // Number of vertices (tower locations)
+    int V; // Number of vertices (tower locations)
+    printf("Enter the number of vertices (tower locations): ");
+    scanf("%d", &V);
+
     Graph* graph = create_graph(V);
 
-    // Test Case 1: Basic graph with no constraints
-    add_edge(graph, 0, 1, 2, 3);
-    add_edge(graph, 0, 2, 4, 1);
-    add_edge(graph, 1, 2, 5, 2);
-    add_edge(graph, 1, 3, 3, 4);
-    add_edge(graph, 2, 3, 1, 2);
-    add_edge(graph, 3, 4, 4, 3);
-    add_edge(graph, 4, 5, 2, 1);
+    int num_edges;
+    printf("Enter the number of edges: ");
+    scanf("%d", &num_edges);
 
-    int max_interference = 10; // Maximum allowed interference (high value)
-    int max_cost = 100;        // Maximum allowed cost (high value)
+    // Get edge inputs from the user
+    printf("Enter the edges (source, destination, interference, cost) one by one:\n");
+    for (int i = 0; i < num_edges; i++) {
+        int src, dest, interference, cost;
 
-    printf("Test Case 1: Basic graph with no constraints\n");
+        printf("Enter source vertex for edge %d: ", i + 1);
+        scanf("%d", &src);
+
+        printf("Enter destination vertex for edge %d: ", i + 1);
+        scanf("%d", &dest);
+
+        printf("Enter interference for edge %d: ", i + 1);
+        scanf("%d", &interference);
+
+        printf("Enter cost for edge %d: ", i + 1);
+        scanf("%d", &cost);
+
+        add_edge(graph, src, dest, interference, cost);
+    }
+
+    int max_interference, max_cost;
+    printf("Enter the maximum allowed interference: ");
+    scanf("%d", &max_interference);
+
+    printf("Enter the maximum allowed cost: ");
+    scanf("%d", &max_cost);
+
+    printf("Running Kruskal's MST algorithm...\n");
+
     kruskal_MST(graph, max_interference, max_cost);
 
     // Free allocated memory
     free(graph);
-
-    // Test Case 2: Graph with interference and cost constraints
-    graph = create_graph(V);
-    add_edge(graph, 0, 1, 2, 3);
-    add_edge(graph, 0, 2, 4, 1);
-    add_edge(graph, 1, 2, 5, 2);
-    add_edge(graph, 1, 3, 3, 4);
-    add_edge(graph, 2, 3, 1, 2);
-    add_edge(graph, 3, 4, 4, 3);
-    add_edge(graph, 4, 5, 2, 1);
-
-    max_interference = 3; // Maximum allowed interference
-    max_cost = 7;         // Maximum allowed cost
-
-    printf("\nTest Case 2: Graph with interference and cost constraints\n");
-    kruskal_MST(graph, max_interference, max_cost);
-
-    // Free allocated memory
-    free(graph);
-
-    return 0;
-}
-
-// prim's solution
-int mai1() {
-    int V = 6; // Number of vertices
-    int E = 9; // Number of edges
-    int cost_limit = 10; // Maximum allowed cost (high value)
-    int maxInterference = 5; // Maximum allowed interference (high value)
-
-    Graph* graph = create_graph(V);
-    
-    // Adding edges with pre-entered values
-    add_edge(graph, 0, 1, 2, 5); // Edge from vertex 0 to 1, interference = 2, cost = 5
-    add_edge(graph, 0, 2, 3, 6);
-    add_edge(graph, 1, 2, 1, 4);
-    add_edge(graph, 1, 3, 4, 7);
-    add_edge(graph, 1, 4, 5, 8);
-    add_edge(graph, 2, 4, 6, 9);
-    add_edge(graph, 3, 5, 2, 3);
-    add_edge(graph, 4, 5, 3, 6);
-    add_edge(graph, 0, 5, 4, 10);
-
-    prim_MST(graph, cost_limit, maxInterference);
 
     return 0;
 }

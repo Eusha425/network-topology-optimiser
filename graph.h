@@ -1,6 +1,6 @@
 //graph.h
 
-
+// graph structure has been changed to an undirected graph
 typedef struct Edge {
     int src, dest;
     int weight; // Interference
