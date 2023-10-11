@@ -34,4 +34,4 @@ int compare_edges(const void* a, const void* b);
 int find(Subset subsets[], int i);
 void union_sets(Subset subsets[], int x, int y);
 void kruskal_MST(Graph* graph, int max_interference, int max_cost);
-void prim_MST(Graph* graph, int cost_limit, int max_interference);
+void prim_MST(Graph* graph, int max_interference, int cost_limit);

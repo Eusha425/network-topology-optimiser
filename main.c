@@ -3,51 +3,61 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "graph.h"
+#pragma warning(disable:4996) // to suppress CRT SECURE NO WARNINGS
+#include <time.h>
 
 int main() {
-    int V; // Number of vertices (tower locations)
+    // Start measuring time
+    clock_t start_time = clock();
+    int V;
     printf("Enter the number of vertices (tower locations): ");
     scanf("%d", &V);
 
     Graph* graph = create_graph(V);
 
-    int num_edges;
-    printf("Enter the number of edges: ");
-    scanf("%d", &num_edges);
+    // Input the edges
+    printf("Enter edges (format: source destination interference cost):\n");
+    int source, destination, interference, cost;
 
-    // Get edge inputs from the user
-    printf("Enter the edges (source, destination, interference, cost) one by one:\n");
-    for (int i = 0; i < num_edges; i++) {
-        int src, dest, interference, cost;
+    while (1) {
+        printf("Source Destination Interference Cost (-1 to finish): ");
+        scanf("%d %d %d %d", &source, &destination, &interference, &cost);
 
-        printf("Enter source vertex for edge %d: ", i + 1);
-        scanf("%d", &src);
+        if (source == -1 || destination == -1) {
+            break;
+        }
 
-        printf("Enter destination vertex for edge %d: ", i + 1);
-        scanf("%d", &dest);
+        if (source < 0 || source >= V || destination < 0 || destination >= V) {
+            printf("Invalid vertex numbers. Please enter valid vertices.\n");
+            continue;
+        }
 
-        printf("Enter interference for edge %d: ", i + 1);
-        scanf("%d", &interference);
-
-        printf("Enter cost for edge %d: ", i + 1);
-        scanf("%d", &cost);
-
-        add_edge(graph, src, dest, interference, cost);
+        add_edge(graph, source, destination, interference, cost);
     }
 
     int max_interference, max_cost;
     printf("Enter the maximum allowed interference: ");
     scanf("%d", &max_interference);
-
     printf("Enter the maximum allowed cost: ");
     scanf("%d", &max_cost);
 
-    printf("Running Kruskal's MST algorithm...\n");
-
-    kruskal_MST(graph, max_interference, max_cost);
+    printf("MST for the graph:\n");
+    prim_MST(graph, max_interference, max_cost);
 
     // Free allocated memory
     free(graph);
 
+    // Stop measuring time
+    clock_t end_time = clock();
+
+    // Calculate the elapsed time in milliseconds
+    double elapsed_time = ((double)(end_time - start_time)) / CLOCKS_PER_SEC * 1000.0;
+
+    // Print the elapsed time
+    printf("Operation took %.2f milliseconds\n", elapsed_time);
+
+
     return 0;
 }
+
+

@@ -69,9 +69,11 @@ void union_sets(Subset subsets[], int x, int y) {
 void kruskal_MST(Graph* graph, int max_interference, int max_cost) {
     int V = graph->V;
     int E = 0;
+    int total_interference = 0;  // Initialize total_interference to 0
     for (int i = 0; i < V; ++i) {
         Node* current = graph->array[i].head;
         while (current) {
+            total_interference += current->weight;
             E++;
             current = current->next;
         }
@@ -123,6 +125,9 @@ void kruskal_MST(Graph* graph, int max_interference, int max_cost) {
         }
     }
 
+    // Print the total interference before MST and the MST with minimum weight and cost
+    printf("Total Interference before MST: %d\n", total_interference);
+
     // Print the MST with minimum weight and cost
     printf("Minimum Spanning Tree:\n");
     int min_weight = 0;
@@ -143,7 +148,7 @@ void kruskal_MST(Graph* graph, int max_interference, int max_cost) {
     free(result);
 }
 
-void prim_MST(Graph* graph, int cost_limit, int maxInterference) {
+void prim_MST(Graph* graph, int maxInterference, int cost_limit) {
     int V = graph->V;
     Edge* result = (Edge*)malloc((V - 1) * sizeof(Edge));
     int e = 0;
