@@ -172,6 +172,7 @@ void prim_MST(Graph* graph, int maxInterference, int cost_limit) {
     int u, v;
     int min_weight;
     int min_cost;
+    
 
     while (e < V - 1) {
         min_weight = INT_MAX;
@@ -210,11 +211,27 @@ void prim_MST(Graph* graph, int maxInterference, int cost_limit) {
         }
     }
 
+    // Print the MST with minimum weight and cost
+    printf("Minimum Spanning Tree:\n");
+    // int min_weight = 0;
+    int total_cost = 0;
+
+    for (i = 0; i < e; ++i) {
+        printf("%d - %d   Weight: %d   Cost: %d\n", result[i].src, result[i].dest, result[i].weight, result[i].cost);
+        min_weight += result[i].weight;
+        total_cost += result[i].cost;
+    }
+
+    /*
     // Print the MST
     printf("Edge \tWeight \tCost\n");
     for (i = 0; i < e; ++i) {
         printf("%d - %d \t%d \t%d\n", result[i].src, result[i].dest, result[i].weight, result[i].cost);
     }
+    */
+
+    printf("Minimum Weight (Interference): %d\n", min_weight);
+    printf("Total Cost: %d\n", total_cost);
 
     free(result);
     free(subsets);
