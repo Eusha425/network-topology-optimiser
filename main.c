@@ -43,6 +43,7 @@ int main() {
 
     printf("MST for the graph:\n");
     prim_MST(graph, max_interference, max_cost);
+    //kruskal_MST(graph, max_interference, max_cost);
 
     // Free allocated memory
     free(graph);
