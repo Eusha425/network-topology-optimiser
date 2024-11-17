@@ -2,14 +2,14 @@
 
 # Network Topology Optimiser
 
-![Network Topology Optimiser](https://via.placeholder.com/800x400?text=Network+Topology+Visualisation)
+![Network Topology Optimiser](https://via.placeholder.com/800x400?text=Network+Topology+MST+Algorithms+Visualization)
 
-[![Licence](https://img.shields.io/badge/Licence-MIT-blue.svg)](LICENCE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![C](https://img.shields.io/badge/C-74.0%25-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![Python](https://img.shields.io/badge/Python-26.0%25-blue.svg)](https://www.python.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-*A sophisticated network optimisation framework for cellular tower placement using advanced MST algorithms*
+*An advanced network optimisation framework implementing modified MST algorithms for cellular tower placement*
 
 [Features](#-features) •
 [Installation](#-installation) •
@@ -21,86 +21,76 @@
 
 ## 📋 Overview
 
-Network Topology Optimiser is a high-performance tool designed to solve the complex challenge of optimising cellular tower networks. By implementing modified versions of Kruskal's and Prim's algorithms, it tackles real-world constraints such as signal interference and operational costs whilst maintaining optimal network coverage.
+Network Topology Optimiser is a high-performance tool that implements modified versions of Kruskal's and Prim's algorithms to optimise cellular tower networks. The project focuses on handling real-world constraints such as signal interference and operational costs while maintaining optimal network coverage.
 
-### Why Network Topology Optimiser?
+### Key Features
 
-- 🚀 **High Performance**: Optimised implementations of MST algorithms
-- 🎯 **Dual Optimisation**: Simultaneously handles interference and cost constraints
-- 📊 **Visual Analytics**: Built-in visualisation tools for network analysis
-- 🔄 **Flexible Architecture**: Supports both sparse and dense network configurations
-- 📈 **Scalable Design**: Efficiently handles networks of varying sizes
+- 🚀 **Efficient Implementation**: Optimised MST algorithms for network analysis
+- 🎯 **Dual Optimisation**: Handles both interference and cost constraints
+- 📊 **Visualization Tools**: Python scripts for network topology analysis
+- 🔄 **Flexible Input**: Supports both sparse and dense network configurations
 
-## 🌟 Features
+## 🛠️ Prerequisites
 
-### Core Functionality
-- **Dual-Constraint Optimisation**: Simultaneously optimises for both interference and cost
-- **Multiple MST Algorithms**:
-  - Modified Kruskal's Algorithm (O(E log V)) for sparse networks
-  - Modified Prim's Algorithm (O(V²)) for dense networks
-- **Network Visualisation**: Python scripts for visualising network topologies
-- **Performance Analysis**: Built-in tools for comparing algorithm performance
-- **Flexible Input**: Support for both dense and sparse network configurations
+- C Compiler (gcc recommended)
+- Python 3.x
+- Python packages:
+  ```bash
+  pip install networkx matplotlib numpy pandas
+  ```
 
-### Optimisation Parameters
-- **Interference Management**
-  - Signal overlap detection and minimisation
-  - Network coverage optimisation
-  - Interference-based edge selection
-- **Cost Optimisation**
-  - Infrastructure cost analysis
-  - Secondary cost-based optimisation
-  - Efficient resource allocation
+## 🚀 Installation & Setup
 
-## 🚀 Installation
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Eusha425/network-topology-optimiser.git
+   cd network-topology-optimiser
+   ```
 
-### Prerequisites
+2. **Compile the C code**
+   ```bash
+   gcc -O2 -o optimiser main.c graph.c archive.c
+   ```
 
-```bash
-# C Compiler
-gcc (or equivalent C compiler)
-
-# Python Requirements (3.x)
-pip install networkx matplotlib numpy pandas
-```
-
-### Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/network-topology-optimiser.git
-cd network-topology-optimiser
-
-# Compile the C code
-gcc -O2 -o optimiser main.c graph.c archive.c
-
-# Install Python dependencies
-pip install -r requirements.txt
-```
+3. **Install required Python packages**
+   ```bash
+   pip install networkx matplotlib numpy pandas
+   ```
 
 ## 📊 Usage
 
-### Basic Usage
-
-1. Prepare your network data:
+### Input Format
+The program expects input in the following format:
 ```
 [number_of_vertices]
 [source] [destination] [interference] [cost]
 ...
 ```
 
-2. Run the optimiser:
+### Running the Program
+
+#### Using Input Redirection (Default Method)
 ```bash
 # For dense networks
-./optimiser input.txt
+./optimiser < input.txt
 
 # For sparse networks
-./optimiser input_sparse.txt
+./optimiser < input_sparse.txt
 ```
 
-3. Visualise results:
+#### Alternative Method (File Reading)
+If you prefer direct file reading instead of input redirection, you'll need to modify the C code to implement file reading functionality. The main sections that would need modification are:
+- `main.c`: Add file handling logic
+- `graph.c`: Modify input processing functions
+
+### Generating Test Data
 ```bash
-python graph_visual.py    # General network visualisation
+python main_generator.py
+```
+
+### Visualizing Results
+```bash
+python graph_visual.py    # General network visualization
 python kruskal_visual.py  # Kruskal's algorithm results
 python prim_visual.py     # Prim's algorithm results
 ```
@@ -110,19 +100,18 @@ python prim_visual.py     # Prim's algorithm results
 ```
 network-topology-optimiser/
 ├── src/
-│   ├── main.c              # Main programme implementation
+│   ├── main.c              # Main program implementation
 │   ├── graph.c             # Graph implementation and algorithms
 │   ├── graph.h             # Graph header file
 │   └── archive.c           # Archive utility functions
-├── visualisation/
-│   ├── graph_visual.py     # Network visualisation script
-│   ├── kruskal_visual.py   # Kruskal's algorithm visualisation
-│   └── prim_visual.py      # Prim's algorithm visualisation
+├── visualization/
+│   ├── graph_visual.py     # Network visualization script
+│   ├── kruskal_visual.py   # Kruskal's algorithm visualization
+│   └── prim_visual.py      # Prim's algorithm visualization
 ├── data/
 │   ├── input.txt           # Dense graph dataset
 │   └── input_sparse.txt    # Sparse graph dataset
-└── docs/
-    └── technical_report.pdf
+└── main_generator.py       # Test data generator
 ```
 
 ## 📈 Performance Analysis
@@ -134,33 +123,25 @@ network-topology-optimiser/
 | Sparse      | 1000     | 45          | 89         |
 | Dense       | 1000     | 156         | 78         |
 
-### Key Findings
-- Kruskal's Algorithm excels in sparse networks
-- Prim's Algorithm is optimal for dense networks
-- Both algorithms maintain network coverage whilst minimising interference
-
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+We love your input! We want to make contributing to Network Topology Optimiser as easy and transparent as possible, whether it's:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+- Becoming a maintainer
 
-## 📜 Licence
+Check out our [Contributing Guidelines](CONTRIBUTING.md) for ways to get started.
 
-This project is licensed under the MIT Licence - see the [LICENCE](LICENCE) file for details.
+Please refer to our [Code of Conduct](CONTRIBUTING.md#code-of-conduct) for details on our code of conduct.
 
-## 📚 References
+## 📜 License
 
-1. Brady, G. (2009). "Pseudocode for Prim's algorithm." Department of Computer Science.
-2. "Network Optimisation Techniques in Modern Telecommunications"
-3. Wilson, R. J. (2010). "Introduction to Graph Theory", 5th Edition.
-4. Graph Theory Applications in Network Design
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 <div align="center">
-Made with ❤️ for the network optimisation community
+Made with ❤️ by <a href="https://github.com/Eusha425">Eusha425</a>
 </div>
