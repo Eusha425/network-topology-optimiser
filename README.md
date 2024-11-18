@@ -141,7 +141,3 @@ Please refer to our [Code of Conduct](CONTRIBUTING.md#code-of-conduct) for detai
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-<div align="center">
-Made with ❤️ by <a href="https://github.com/Eusha425">Eusha425</a>
-</div>
