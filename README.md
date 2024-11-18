@@ -2,7 +2,7 @@
 
 # Network Topology Optimiser
 
-![Network Topology Optimiser](https://github.com/Eusha425/network-topology-optimiser/blob/master/assets/comparison.svg)
+![Network Topology Optimiser](https://github.com/Eusha425/network-topology-optimiser/blob/master/assets/comparison.png)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![C](https://img.shields.io/badge/C-74.0%25-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
