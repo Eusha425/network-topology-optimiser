@@ -11,26 +11,26 @@
 
 *An advanced network optimisation framework implementing modified MST algorithms for cellular tower placement*
 
-[Features](#-features) •
-[Installation](#-installation) •
-[Usage](#-usage) •
-[Documentation](#-project-structure) •
-[Contributing](#-contributing)
+[Features](#key-features) •
+[Installation](#installation--setup) •
+[Usage](#usage) •
+[Documentation](#project-structure) •
+[Contributing](#contributing)
 
 </div>
 
-## 📋 Overview
+## Overview
 
 Network Topology Optimiser is a high-performance tool that implements modified versions of Kruskal's and Prim's algorithms to optimise cellular tower networks. The project focuses on handling real-world constraints such as signal interference and operational costs while maintaining optimal network coverage.
 
 ### Key Features
 
-- 🚀 **Efficient Implementation**: Optimised MST algorithms for network analysis
-- 🎯 **Dual Optimisation**: Handles both interference and cost constraints
-- 📊 **Visualization Tools**: Python scripts for network topology analysis
-- 🔄 **Flexible Input**: Supports both sparse and dense network configurations
+- **Efficient Implementation**: Optimised MST algorithms for network analysis
+- **Dual Optimisation**: Handles both interference and cost constraints
+- **Visualization Tools**: Python scripts for network topology analysis
+- **Flexible Input**: Supports both sparse and dense network configurations
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 - C Compiler (gcc recommended)
 - Python 3.x
@@ -39,7 +39,7 @@ Network Topology Optimiser is a high-performance tool that implements modified v
   pip install networkx matplotlib numpy pandas
   ```
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -57,7 +57,7 @@ Network Topology Optimiser is a high-performance tool that implements modified v
    pip install networkx matplotlib numpy pandas
    ```
 
-## 📊 Usage
+## Usage
 
 ### Input Format
 The program expects input in the following format:
@@ -95,7 +95,7 @@ python kruskal_visual.py  # Kruskal's algorithm results
 python prim_visual.py     # Prim's algorithm results
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 network-topology-optimiser/
@@ -114,7 +114,7 @@ network-topology-optimiser/
 └── main_generator.py       # Test data generator
 ```
 
-## 📈 Performance Analysis
+## Performance Analysis
 
 ### Algorithm Comparison
 
@@ -123,9 +123,9 @@ network-topology-optimiser/
 | Sparse      | 1000     | 45          | 89         |
 | Dense       | 1000     | 156         | 78         |
 
-## 🤝 Contributing
+## Contributing
 
-We love your input! We want to make contributing to Network Topology Optimiser as easy and transparent as possible, whether it's:
+Contribution is extremely appreciated! To make contributing to Network Topology Optimiser as easy and transparent as possible, whether it's:
 
 - Reporting a bug
 - Discussing the current state of the code
@@ -133,11 +133,10 @@ We love your input! We want to make contributing to Network Topology Optimiser a
 - Proposing new features
 - Becoming a maintainer
 
-Check out our [Contributing Guidelines](CONTRIBUTING.md) for ways to get started.
+Check out the [Contributing Guidelines](CONTRIBUTING.md) for ways to get started.
 
-Please refer to our [Code of Conduct](CONTRIBUTING.md#code-of-conduct) for details on our code of conduct.
+Please refer to the [Code of Conduct](CONTRIBUTING.md#code-of-conduct) for details on the code of conduct.
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
