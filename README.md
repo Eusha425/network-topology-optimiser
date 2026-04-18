@@ -123,19 +123,6 @@ network-topology-optimiser/
 | Sparse      | 1000     | 45          | 89         |
 | Dense       | 1000     | 156         | 78         |
 
-## Contributing
-
-Contribution is extremely appreciated! To make contributing to Network Topology Optimiser as easy and transparent as possible, whether it's:
-
-- Reporting a bug
-- Discussing the current state of the code
-- Submitting a fix
-- Proposing new features
-- Becoming a maintainer
-
-Check out the [Contributing Guidelines](CONTRIBUTING.md) for ways to get started.
-
-Please refer to the [Code of Conduct](CONTRIBUTING.md#code-of-conduct) for details on the code of conduct.
 
 ## License
 
